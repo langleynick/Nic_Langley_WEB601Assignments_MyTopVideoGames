@@ -1,28 +1,29 @@
-class ContentList implements Content {
+import { Content } from '../helper-files/content-interface';
+class ContentList {
 
-    private contentArray:Content[];
+    private _items: Content[];
 
-    constructor (contentArray:Content[]) {
-        this.contentArray = [];
+    constructor (item: Content[]) {
+        this._items = [];
     }
-    get content(): Content[] {
-        return this.contentArray;
+    get items(): Content[] {
+        return this._items;
     }
-    addFunction(item: Content) {
-        this.contentArray.push(item);
+    addFunction(newItem: Content) {
+        this._items.push(newItem);
     }
     numOfItems() {
-        return this.contentArray.length;
+        return ContentList.length;
     }
     fillCard(index: number) {
-        if (index > this.contentArray.length){
+        if (index > this._items.length){
             return ("Error: Your selection yeilds no results");
         }
-        let title =   this.contentArray[index].title;
-        let description = this.contentArray[index].description;
-        let creator = this.contentArray[index].creator;
-        let imgURL = this.contentArray[index].imgURL;
-        let type = this.contentArray[index].type;
+        let title =   this._items[index].title;
+        let description = this._items[index].description;
+        let creator = this._items[index].creator;
+        let imgURL = this._items[index].imgURL;
+        let type = this._items[index].type;
         return ('<h1>${title}</h1>') 
     }
 }
