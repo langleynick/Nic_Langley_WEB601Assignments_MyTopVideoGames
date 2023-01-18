@@ -3,7 +3,7 @@ class ContentList {
 
     private _items: Content[];
 
-    constructor (item: Content[]) {
+    constructor (_items: Content[]) {
         this._items = [];
     }
     get items(): Content[] {
