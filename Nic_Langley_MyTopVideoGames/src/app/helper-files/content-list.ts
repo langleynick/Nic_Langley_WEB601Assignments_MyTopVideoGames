@@ -1,5 +1,5 @@
 import { Content } from '../helper-files/content-interface';
-class ContentList {
+export class ContentList {
 
     private _items: Content[];
 
@@ -13,17 +13,18 @@ class ContentList {
         this._items.push(newItem);
     }
     numOfItems() {
-        return ContentList.length;
+        return this._items.length;
     }
     fillCard(index: number) {
-        if (index > this._items.length){
+        if (index > this._items.length || index === 0){
             return ("Error: Your selection yeilds no results");
+        } else {
+            let title = this._items[index].title;
+            let description = this._items[index].description;
+            let creator = this._items[index].creator;
+            let imgURL = this._items[index].imgURL;
+            let type = this._items[index].type;
+            return ('<div><h1><b>'+ title + '</b></h1><p>' + description + '<p></p>Creator: ' + creator + '</p><img src="' + imgURL + '"><p>Type: ' + type + '</p></div>')
         }
-        let title =   this._items[index].title;
-        let description = this._items[index].description;
-        let creator = this._items[index].creator;
-        let imgURL = this._items[index].imgURL;
-        let type = this._items[index].type;
-        return ('<h1>${title}</h1>') 
     }
 }
