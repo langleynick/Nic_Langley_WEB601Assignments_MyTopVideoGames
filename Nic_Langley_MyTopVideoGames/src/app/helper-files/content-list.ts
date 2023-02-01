@@ -6,11 +6,10 @@ export class ContentList {
     constructor () {
         this._items = [];
     }
-    get items(): Content[] {
+    getItems(): Content[] {
         return this._items;
     }
     addFunction(newItem: Content) {
-        console.log(newItem);
         this._items.push(newItem);
     }
     numOfItems() {
@@ -25,7 +24,7 @@ export class ContentList {
             let creator = this._items[index].creator;
             let imgURL = this._items[index].imgURL;
             let type = this._items[index].type;
-            return ("<div><h1><b>"+ title + "</b></h1><p>" + description + "<p></p>Creator: " + creator + "</p><img src='" + imgURL + "'><p>Type: " + type + "</p></div>");
+            return `<div><h1>` + title + `</h1><p>` + description + `<p></p>Creator: ` + creator + `</p><img src="` + imgURL + `"><p>Type: ` + type + `</p></div>`;
         }
     }
 }

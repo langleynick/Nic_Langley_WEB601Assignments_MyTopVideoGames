@@ -7,7 +7,8 @@ import { ContentList } from '../helper-files/content-list';
   styleUrls: ['./content-card.component.scss']
 })
 export class ContentCardComponent{
-contentArray = new ContentList();
+contentList = new ContentList();
+contentArray : Content [];
 contentItem1 : Content = {
   id: 1,
   title: "Jedi Fallen Order",
@@ -33,11 +34,13 @@ contentItem3 : Content = {
   type: "Action"
 };
 constructor(){
-  this.contentArray.addFunction(this.contentItem1);
-  this.contentArray.addFunction(this.contentItem2);
-  this.contentArray.addFunction(this.contentItem3);
+  this.contentList.addFunction(this.contentItem1);
+  this.contentList.addFunction(this.contentItem2);
+  this.contentList.addFunction(this.contentItem3);
+  
+  this.contentArray = this.contentList.getItems();
 }
-card1 = this.contentArray.fillCard(0);
-card2 = this.contentArray.fillCard(1);
-card3 = this.contentArray.fillCard(2);
+myFunction() {
+  return this.contentList.fillCard(0) + this.contentList.fillCard(1) + this.contentList.fillCard(2);
+}
 }
