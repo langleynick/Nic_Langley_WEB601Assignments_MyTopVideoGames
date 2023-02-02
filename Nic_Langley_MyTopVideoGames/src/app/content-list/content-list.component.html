@@ -1,7 +1,22 @@
+<style>
+    div{
+        border: 1px solid black;
+        text-align: center;
+        margin: 10px auto;
+        padding: 10px;
+        width: 50%;
+    }
+    img{
+        width: 50%;
+    }
+</style>
+<h1 style="text-align:center;">My Top Video Games:</h1>
+<p style="text-align:center;">By: {{ name }}</p>
 <div *ngFor="let item of content">
-    <h1>{{ item.title }}</h1>
+    <h2>{{ item.title }}</h2>
     <img src="{{ item.imgURL }}">
-    <p>Description: {{ item.description }}</p>
-    <p>Creator: {{ item.creator }}</p>
-    <p>Type: {{ item.type }}</p>
+    <p><b>Description:</b> {{ item.description }}</p>
+    <p><b>Creator:</b> {{ item.creator }}</p>
+    <p><b>Type:</b> {{ item.type }}</p>
+    <p><b>Tags:</b> {{ item.tags }}</p>
 </div>
