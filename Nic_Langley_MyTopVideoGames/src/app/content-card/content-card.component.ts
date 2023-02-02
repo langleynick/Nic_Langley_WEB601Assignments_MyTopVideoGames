@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Content } from '../helper-files/content-interface';
 @Component({
   selector: 'app-content-card',
@@ -6,32 +6,14 @@ import { Content } from '../helper-files/content-interface';
   styleUrls: ['./content-card.component.scss']
 })
 export class ContentCardComponent{
-contentItem1 : Content = {
-  id: 1,
-  title: "Jedi Fallen Order",
-  description: "A young Jedi must go on a journey to find himself and rediscover the force.",
-  creator: "EA Games",
-  imgURL: "",
-  type: "Sci-Fi"
-};
-contentItem2 : Content = {
-  id: 2,
-  title: "God of War",
-  description: "A seasoned warrior does what he must to protect his son.",
-  creator: "Santa Monica Studio",
-  imgURL: "",
-  type: "Action"
-};
-contentItem3 : Content = {
-  id: 3,
-  title: "The Last of Us",
-  description: "In a post apocolyptic world, Joel must protect the only hope society has of survival",
-  creator: "Naughty Dog",
-  imgURL: "",
-  type: "Action"
-};
+  @Input() item: Content | undefined;
 constructor(){
   
 }
-
+displayInfo(id? : number, title? : string) {
+  if(id != null && title != null)
+  console.log("--- " + title + "'s image clicked ---");
+  console.log("ID: " + id);
+  console.log("Title: " + title)
+}
 }

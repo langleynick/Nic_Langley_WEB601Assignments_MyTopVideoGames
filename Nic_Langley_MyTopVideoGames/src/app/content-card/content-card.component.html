@@ -1,0 +1,11 @@
+<style>
+    img{
+        width: 50%;
+    }
+</style>
+<h2>{{ item?.title }}</h2>
+<img (click)= "displayInfo(item?.id, item?.title)" src="{{ item?.imgURL }}">
+<p><b>Description:</b> {{ item?.description }}</p>
+<p><b>Creator:</b> {{ item?.creator }}</p>
+<p><b>Type:</b> {{ item?.type }}</p>
+<p><b>Tags:</b> {{ item?.tags?.join(', ') }}</p>

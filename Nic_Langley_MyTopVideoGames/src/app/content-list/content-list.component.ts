@@ -14,7 +14,7 @@ export class ContentListComponent implements OnInit{
         {
           id: 1,
           title: "The Last of Us",
-          description: "In a post apocolyptic world, Joel must protect the only hope society has of survival",
+          description: "In a post apocolyptic world, Joel must protect the only hope society has of survival.",
           creator: "Naughty Dog",
           imgURL: "../assets/images/controllerIMG.png",
           type: "Action",
@@ -69,8 +69,5 @@ export class ContentListComponent implements OnInit{
     }
     ngOnInit(): void {
       
-    }
-    displayInfo() {
-      console.log(this.content)
     }
 }
