@@ -1,14 +1,11 @@
 import { Component } from '@angular/core';
 import { Content } from '../helper-files/content-interface';
-import { ContentList } from '../helper-files/content-list';
 @Component({
   selector: 'app-content-card',
   templateUrl: './content-card.component.html',
   styleUrls: ['./content-card.component.scss']
 })
 export class ContentCardComponent{
-contentList = new ContentList();
-contentArray : Content [];
 contentItem1 : Content = {
   id: 1,
   title: "Jedi Fallen Order",
@@ -34,13 +31,7 @@ contentItem3 : Content = {
   type: "Action"
 };
 constructor(){
-  this.contentList.addFunction(this.contentItem1);
-  this.contentList.addFunction(this.contentItem2);
-  this.contentList.addFunction(this.contentItem3);
   
-  this.contentArray = this.contentList.getItems();
 }
-myFunction() {
-  return this.contentList.fillCard(0) + this.contentList.fillCard(1) + this.contentList.fillCard(2);
-}
+
 }
