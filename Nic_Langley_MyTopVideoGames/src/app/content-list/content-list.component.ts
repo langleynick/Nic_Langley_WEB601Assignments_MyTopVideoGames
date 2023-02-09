@@ -8,8 +8,10 @@ import { Content } from '../helper-files/content-interface';
 })
 export class ContentListComponent implements OnInit{
     @Input() content: Content[];
+    @Input('ngModel') title: string;
     name = "Nick Langley";
     constructor() {
+      this.title = "";
       this.content = [
         {
           id: 1,
@@ -35,7 +37,6 @@ export class ContentListComponent implements OnInit{
           description: "A young Jedi must go on a journey to find himself and rediscover the force.",
           creator: "EA Games",
           imgURL: "../assets/images/controllerIMG.png",
-          type: "Sci-Fi",
           tags: ["Science Fiction", "Action", "Star Wars"]
         },
         {
@@ -53,7 +54,6 @@ export class ContentListComponent implements OnInit{
           description: "A basketball game where you can create your own career or play as real basketball teams.",
           creator: "2k Games",
           imgURL: "../assets/images/controllerIMG.png",
-          type: "Sports",
           tags: ["Realism", "Basketball", "Celebrities"]
         },
         {
@@ -64,10 +64,34 @@ export class ContentListComponent implements OnInit{
           imgURL: "../assets/images/controllerIMG.png",
           type: "RPG",
           tags: ["Ancient", "Fiction", "Decision-making"]
+        },
+        {
+          id: 7,
+          title: "Uncharted: Among Theives",
+          description: "A treasure hunter seeks fortune in an ancient city.",
+          creator: "Naughty Dog",
+          imgURL: "../assets/images/controllerIMG.png",
+          tags: ["Ancient", "Fiction", "Treasure"]
         }
       ]
     }
     ngOnInit(): void {
       
+    }
+
+    searchTitle(title: string){
+      let doesExist : boolean = false;
+      this.content.forEach(function(item){
+        let itemTitle : string = item.title.toLowerCase();
+        if (title === itemTitle){
+          doesExist = true;
+        }
+        if(doesExist){
+          document.getElementById('results')!.innerHTML = "<div style='color: green;'> Title Exists </div>";
+        }
+        else {
+          document.getElementById('results')!.innerHTML = "<div style='color: red;'> Title Does Not Exist </div>";
+        }
+      })
     }
 }
