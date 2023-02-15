@@ -30,18 +30,18 @@
 
 </span>
 <br>
-<div class="noTags" *ngFor="let item of content | contentFilter;">
+<div appHoverAffect [effect] ="'background'" class="noTags" *ngFor="let item of content | contentFilter;">
     <app-content-card [item]="item"></app-content-card>
 </div>
 <br>
-<div class="action" *ngFor="let item of content | contentFilter : 'Action';">
+<div appHoverAffect [effect] ="'background'" class="action" *ngFor="let item of content | contentFilter : 'Action';">
     <app-content-card [item]="item"></app-content-card>
 </div>
 <br>
-<div class="rpg" *ngFor="let item of content | contentFilter : 'RPG';">
+<div appHoverAffect [effect] ="'background'" class="rpg" *ngFor="let item of content | contentFilter : 'RPG';">
     <app-content-card [item]="item"></app-content-card>
 </div>
 <br>
-<div class="shooting" *ngFor="let item of content | contentFilter : 'Shooting';">
+<div appHoverAffect [effect] ="'background'" class="shooting" *ngFor="let item of content | contentFilter : 'Shooting';">
     <app-content-card [item]="item"></app-content-card>
 </div>

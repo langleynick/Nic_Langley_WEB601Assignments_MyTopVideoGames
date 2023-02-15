@@ -4,8 +4,12 @@
     }
 </style>
 <h2>{{ item?.title }}</h2>
-<img (click)= "displayInfo(item?.id, item?.title)" src="{{ item?.imgURL }}">
+<img *ngIf="item?.imgURL" (click)= "displayInfo(item?.id, item?.title)" src="{{ item?.imgURL }}">
+<img *ngIf="!item?.imgURL" src="../assets/images/questionMark.jpg">
 <p><b>Description:</b> {{ item?.description }}</p>
 <p><b>Creator:</b> {{ item?.creator }}</p>
-<p><b>Type:</b> {{ item?.type }}</p>
-<p><b>Tags:</b> {{ item?.tags?.join(', ') }}</p>
+<p appHoverAffect [effect] = '"underline"'><b>Type:</b> {{ item?.type }}</p>
+<p><b>Tags:</b></p>
+<div *ngFor="let tag of item?.tags; let i = index;">
+    <p appHoverAffect [effect]="'bold'">{{tag}}</p>
+</div>

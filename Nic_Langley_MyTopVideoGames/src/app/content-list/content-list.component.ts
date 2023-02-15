@@ -18,7 +18,6 @@ export class ContentListComponent implements OnInit{
           title: "The Last of Us",
           description: "In a post apocolyptic world, Joel must protect the only hope society has of survival.",
           creator: "Naughty Dog",
-          imgURL: "../assets/images/controllerIMG.png",
           type: "Action",
           tags: ["Horror", "Action", "Shooting"]
         },
