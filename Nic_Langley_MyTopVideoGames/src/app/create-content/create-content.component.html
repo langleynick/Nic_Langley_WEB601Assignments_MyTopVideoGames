@@ -1,0 +1,25 @@
+<h2>Add Content</h2>
+<form>
+    <label for="id">ID:
+        <input type="text" name="id" [(ngModel)]="newContentItem.id">
+    </label><br>
+    <label for="title">Title:
+        <input type="text" name="title" [(ngModel)]="newContentItem.title">
+    </label><br>
+    <label for="description">Description:
+        <input type="text" name="description" [(ngModel)]="newContentItem.description">
+    </label><br>
+    <label for="creator">Creator:
+        <input type="text" name="creator" [(ngModel)]="newContentItem.creator">
+    </label><br>
+    <label for="imgUrl">Image URL:
+        <input type="text" name="imgUrl" [(ngModel)]="newContentItem.imgURL">
+    </label><br>
+    <label for="type">Type:
+        <input type="text" name="type" [(ngModel)]="newContentItem.type">
+    </label><br>
+    <label for="tags">Tags:
+        <input type="text" name="tags" [(ngModel)]="newContentItem.tags">
+    </label><br><br>
+    <button (click)="addContent()">Submit</button>
+</form>

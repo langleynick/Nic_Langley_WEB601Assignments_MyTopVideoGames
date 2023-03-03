@@ -21,6 +21,7 @@
         background-color: lightgray;
     }
 </style>
+<app-create-content (newContentEvent)="addContentToList($event)"></app-create-content>
 <div>
     <input type="text" [value]="title | lowercase" [(ngModel)]="title">
     <button (click)="searchTitle(title)">Search</button>
