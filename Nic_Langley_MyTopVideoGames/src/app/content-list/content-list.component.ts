@@ -16,7 +16,7 @@ export class ContentListComponent implements OnInit{
       this.content = [];
     }
     ngOnInit(){
-      this.content = this.contentService.getContent();
+      this.contentService.getContentObs().subscribe(content => this.content = content);
     }
 
     searchTitle(title: string){
