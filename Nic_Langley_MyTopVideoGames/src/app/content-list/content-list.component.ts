@@ -9,14 +9,17 @@ import { GameServiceService } from '../game-service.service';
 })
 export class ContentListComponent implements OnInit{
     @Input() content: Content[];
+    @Input() game: Content[];
     @Input('ngModel') title: string;
     name = "Nick Langley";
     constructor(private contentService: GameServiceService ) {
       this.title = "";
       this.content = [];
+      this.game = [];
     }
     ngOnInit(){
-      this.contentService.getContentObs().subscribe(content => this.content = content);
+      this.contentService.getGames().subscribe(content => this.content = content);
+      this.contentService.getGame(2).subscribe(game => this.game = game);
     }
 
     searchTitle(title: string){

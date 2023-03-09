@@ -20,7 +20,13 @@
     div.shooting {
         background-color: lightgray;
     }
+    div.game-shadow{
+        box-shadow: 15px 15px gray;
+    }
 </style>
+<div *ngFor="let games of game" class="game-shadow">
+    <app-content-card [item]="games"></app-content-card>
+</div>
 <app-create-content (newContentEvent)="addContentToList($event)"></app-create-content>
 <div>
     <input type="text" [value]="title | lowercase" [(ngModel)]="title">

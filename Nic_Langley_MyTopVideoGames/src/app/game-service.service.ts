@@ -10,7 +10,11 @@ export class GameServiceService {
 
   constructor() { }
 
-  getContentObs (): Observable <Content[]> {
+  getGames (): Observable <Content[]> {
     return of (CONTENT);
+  }
+  getGame (id : number ): Observable<Content[]> {
+    let game: Content []= CONTENT.filter(obj => obj.id == id);
+    return of (game);
   }
 }
