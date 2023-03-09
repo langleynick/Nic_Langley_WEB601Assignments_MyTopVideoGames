@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Content } from '../helper-files/content-interface';
+import { GameServiceService } from '../game-service.service';
 
 @Component({
   selector: 'app-content-list',
@@ -10,11 +11,12 @@ export class ContentListComponent implements OnInit{
     @Input() content: Content[];
     @Input('ngModel') title: string;
     name = "Nick Langley";
-    constructor() {
+    constructor(private contentService: GameServiceService ) {
       this.title = "";
+      this.content = [];
     }
-    ngOnInit(): void {
-      
+    ngOnInit(){
+      this.content = this.contentService.getContent();
     }
 
     searchTitle(title: string){

@@ -1,6 +1,6 @@
 import { Content } from "./content-interface"
 
-let content : Content[] = [
+export let CONTENT : Content[] = [
     {
       id: 1,
       title: "The Last of Us",
