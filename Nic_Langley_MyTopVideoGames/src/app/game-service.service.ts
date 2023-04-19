@@ -2,23 +2,23 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { MessageService } from './message.service';
 import { Content } from './helper-files/content-interface';
-import { CONTENT } from './helper-files/contentDB';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GameServiceService {
 
-  constructor(private messageService: MessageService) { }
+  constructor(private messageService: MessageService, private http: HttpClient) { }
+
+  private httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
 
   getGames (): Observable <Content[]> {
-    const games = of(CONTENT)
-    this.messageService.add('Content array loaded!');
-    return games;
+    return this.http.get<Content[]>("api/games");
   }
-  getGame (id : number ): Observable<Content[]> {
-    const game = CONTENT.filter(obj => obj.id == id);
-    this.messageService.add('Content ID: ' + id)
-    return of (game);
+  addGame(game: Content): Observable<Content>{
+    return this.http.post<Content>("api/games", game, this.httpOptions);
   }
 }

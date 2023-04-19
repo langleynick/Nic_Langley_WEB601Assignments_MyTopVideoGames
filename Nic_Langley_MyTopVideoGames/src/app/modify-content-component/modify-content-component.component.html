@@ -1,0 +1,31 @@
+<form>
+    <label>Title:</label>
+    <input 
+        type="text"
+        name="contentTitle"
+        [(ngModel)]="gamesContent.title"
+    />
+    <br>
+    <label>Description:</label>
+    <input 
+        type="text"
+        name="contentDescription"
+        [(ngModel)]="gamesContent.description"
+    />
+    <br>
+    <label>Creator:</label>
+    <input 
+        type="text"
+        name="contentCreator"
+        [(ngModel)]="gamesContent.creator"
+    />
+    <br>
+    <label>Type:</label>
+    <input 
+        type="text"
+        name="contentType"
+        [(ngModel)]="gamesContent.type"
+    />
+</form>
+<button (click)="addGameContent()">Add Game</button>
+<br>

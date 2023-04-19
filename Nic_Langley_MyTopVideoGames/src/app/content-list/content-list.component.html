@@ -24,8 +24,11 @@
         box-shadow: 15px 15px gray;
     }
 </style>
-<div *ngFor="let games of game" class="game-shadow">
-    <app-content-card [item]="games"></app-content-card>
+<hr>
+<app-modify-content-component (contentAddedEvent) = "addContentToList($event)" (games) = "games"></app-modify-content-component>
+<hr>
+<div *ngFor="let game of games">
+    <app-content-card [item]="game"></app-content-card>
 </div>
 <app-create-content (newContentEvent)="addContentToList($event)"></app-create-content>
 <div>
@@ -37,18 +40,18 @@
 
 </span>
 <br>
-<div appHoverAffect [effect] ="'background'" class="noTags" *ngFor="let item of content | contentFilter;">
-    <app-content-card [item]="item"></app-content-card>
+<div appHoverAffect [effect] ="'background'" class="noTags" *ngFor="let game of games | contentFilter;">
+    <app-content-card [item]="game"></app-content-card>
 </div>
 <br>
-<div appHoverAffect [effect] ="'background'" class="action" *ngFor="let item of content | contentFilter : 'Action';">
-    <app-content-card [item]="item"></app-content-card>
+<div appHoverAffect [effect] ="'background'" class="action" *ngFor="let game of games | contentFilter : 'Action';">
+    <app-content-card [item]="game"></app-content-card>
 </div>
 <br>
-<div appHoverAffect [effect] ="'background'" class="rpg" *ngFor="let item of content | contentFilter : 'RPG';">
-    <app-content-card [item]="item"></app-content-card>
+<div appHoverAffect [effect] ="'background'" class="rpg" *ngFor="let game of games | contentFilter : 'RPG';">
+    <app-content-card [item]="game"></app-content-card>
 </div>
 <br>
-<div appHoverAffect [effect] ="'background'" class="shooting" *ngFor="let item of content | contentFilter : 'Shooting';">
-    <app-content-card [item]="item"></app-content-card>
+<div appHoverAffect [effect] ="'background'" class="shooting" *ngFor="let game of games | contentFilter : 'Shooting';">
+    <app-content-card [item]="game"></app-content-card>
 </div>

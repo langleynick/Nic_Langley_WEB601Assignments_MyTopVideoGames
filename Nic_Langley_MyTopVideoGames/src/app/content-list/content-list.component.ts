@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Content } from '../helper-files/content-interface';
 import { GameServiceService } from '../game-service.service';
+import { MessageService } from '../message.service';
 
 @Component({
   selector: 'app-content-list',
@@ -8,24 +9,20 @@ import { GameServiceService } from '../game-service.service';
   styleUrls: ['./content-list.component.scss']
 })
 export class ContentListComponent implements OnInit{
-    @Input() content: Content[];
-    @Input() game: Content[];
+    games: Content[] = [];
     @Input('ngModel') title: string;
     name = "Nick Langley";
-    constructor(private contentService: GameServiceService ) {
+    constructor(private contentService: GameServiceService, private messageService: MessageService) {
       this.title = "";
-      this.content = [];
-      this.game = [];
     }
     ngOnInit(){
-      this.contentService.getGames().subscribe(content => this.content = content);
-      this.contentService.getGame(2).subscribe(game => this.game = game);
+      this.contentService.getGames().subscribe(games => this.games = games);
     }
 
     searchTitle(title: string){
       let doesExist : boolean = false;
-      this.content.forEach(function(item){
-        let itemTitle : string = item.title.toLowerCase();
+      this.games.forEach(function(game){
+        let itemTitle : string = game.title.toLowerCase();
         if (title === itemTitle){
           doesExist = true;
         }
@@ -37,10 +34,11 @@ export class ContentListComponent implements OnInit{
         }
       })
     }
-    addContentToList(newItem: Content) {
-      this.content.push(newItem);
-      this.content = Object.assign([], this.content);
-      this.content = [...this.content];
+    addContentToList(newContent: Content): void {
+      this.contentService.addGame(newContent).subscribe((game) => {
+         this.games.push(game);
+      });
+      this.messageService.add("Success! Game added");
     }
 
 }

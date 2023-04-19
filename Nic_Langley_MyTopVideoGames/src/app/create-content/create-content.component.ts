@@ -8,7 +8,13 @@ import { Content } from '../helper-files/content-interface';
 })
 export class CreateContentComponent {
   @Output() newContentEvent = new EventEmitter<Content>();
-  newContentItem!: Content;
+  newContentItem: Content = {
+    id: 0,
+    title: '',
+    description: '',
+    creator:'',
+    type:'',
+  };
   
   addContent() {
     this.newContentEvent.emit(this.newContentItem);
