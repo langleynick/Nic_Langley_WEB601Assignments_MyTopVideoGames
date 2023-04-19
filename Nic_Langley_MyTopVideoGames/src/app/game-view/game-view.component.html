@@ -1,0 +1,7 @@
+<div *ngIf="content" style="width: 400px; margin: auto; padding: 40px; border: 1px solid black;">
+    <h2> {{ content.title }}</h2>
+    <p> {{ content.description }}</p>
+    <br>
+    <a routerLink="/content" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Back to Content</a>
+</div>
+<br>

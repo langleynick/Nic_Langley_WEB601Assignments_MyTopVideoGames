@@ -22,6 +22,9 @@ import { MatIconModule} from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { GameServiceService } from './game-service.service';
 import { GameDialogComponent } from './game-dialog/game-dialog.component';
+import { GameViewComponent } from './game-view/game-view.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -34,8 +37,11 @@ import { GameDialogComponent } from './game-dialog/game-dialog.component';
     AppMessagesComponent,
     ModifyContentComponentComponent,
     GameDialogComponent,
+    GameViewComponent,
+    PageNotFoundComponent,
   ],
   imports: [
+    AppRoutingModule,
     MatButtonModule,
     MatInputModule,
     MatDialogModule,

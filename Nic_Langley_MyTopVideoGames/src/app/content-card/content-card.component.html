@@ -10,12 +10,14 @@
     <mat-card-content>
         <img mat-card-image *ngIf="item?.imgURL" (click)= "displayInfo(item?.id, item?.title)" src="{{ item?.imgURL }}">
         <img mat-card-image *ngIf="!item?.imgURL" src="../assets/images/questionMark.jpg">
-        <p><b>Description:</b> {{ item?.description }}</p>
         <p><b>Creator:</b> {{ item?.creator }}</p>
         <p appHoverAffect [effect] = '"underline"'><b>Type:</b> {{ item?.type }}</p>
         <p><b>Tags:</b></p>
         <div *ngFor="let tag of item?.tags; let i = index;">
             <p appHoverAffect [effect]="'bold'">{{tag}}</p>
         </div>
+        <a [routerLink]=" ['/content', item?.id]" routerLinkActive="active">
+            Game Details
+        </a>
     </mat-card-content>
 </mat-card>

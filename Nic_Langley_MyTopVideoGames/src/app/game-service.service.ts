@@ -21,4 +21,7 @@ export class GameServiceService {
   addGame(game: Content): Observable<Content>{
     return this.http.post<Content>("api/games", game, this.httpOptions);
   }
+  getGame (id: number): Observable <Content> {
+    return this.http.get<Content>('api/games/' + id);
+  }
 }
