@@ -1,0 +1,49 @@
+<h3 mat-dialog-title>Add a Game</h3>
+<div mat-dialog-content>
+<form>
+    <mat-form-field>
+        <label>Title:</label>
+        <input
+            #title
+            matInput
+            type="text"
+            name="contentTitle"
+            [(ngModel)]="newGame.title"
+        />
+    </mat-form-field>
+    <mat-form-field>
+        <label>Description:</label>
+        <input
+            #description
+            matInput
+            type="text"
+            name="contentDescription"
+            [(ngModel)]="newGame.description"
+        />
+    </mat-form-field>
+    <mat-form-field>
+        <label>Creator:</label>
+        <input
+            #creator
+            matInput
+            type="text"
+            name="contentCreator"
+            [(ngModel)]="newGame.creator"
+        />
+    </mat-form-field>
+    <mat-form-field>
+        <label>Type:</label>
+        <input
+            #type
+            matInput
+            type="text"
+            name="contentType"
+            [(ngModel)]="newGame.type"
+        />
+    </mat-form-field>
+</form>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="ref.close()">Cancel</button>
+    <button mat-button color="primary" (click)="addGameContent()">Add Game</button>
+</div>

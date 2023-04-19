@@ -18,7 +18,7 @@ export class ContentListComponent implements OnInit{
     ngOnInit(){
       this.contentService.getGames().subscribe(games => this.games = games);
     }
-
+    
     searchTitle(title: string){
       let doesExist : boolean = false;
       this.games.forEach(function(game){

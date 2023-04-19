@@ -13,6 +13,15 @@ import { HoverAffectDirective } from './hover-affect.directive';
 import { CreateContentComponent } from './create-content/create-content.component';
 import { AppMessagesComponent } from './app-messages/app-messages.component';
 import { ModifyContentComponentComponent } from './modify-content-component/modify-content-component.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule} from '@angular/material/icon';
+import { MatDividerModule } from '@angular/material/divider';
+import { GameServiceService } from './game-service.service';
+import { GameDialogComponent } from './game-dialog/game-dialog.component';
 
 @NgModule({
   declarations: [
@@ -23,18 +32,31 @@ import { ModifyContentComponentComponent } from './modify-content-component/modi
     HoverAffectDirective,
     CreateContentComponent,
     AppMessagesComponent,
-    ModifyContentComponentComponent
+    ModifyContentComponentComponent,
+    GameDialogComponent,
   ],
   imports: [
+    MatButtonModule,
+    MatInputModule,
+    MatDialogModule,
+    MatCardModule,
+    MatIconModule,
+    MatDividerModule,
     BrowserModule,
     FormsModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
       dataEncapsulation: false,
       delay: 1000,
-    })
+    }),
+    BrowserAnimationsModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: MatDialogRef,
+      useValue: {}
+    },
+    GameServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

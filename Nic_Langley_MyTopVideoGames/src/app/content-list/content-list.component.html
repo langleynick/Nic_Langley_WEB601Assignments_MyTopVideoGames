@@ -24,21 +24,24 @@
         box-shadow: 15px 15px gray;
     }
 </style>
-<hr>
-<app-modify-content-component (contentAddedEvent) = "addContentToList($event)" (games) = "games"></app-modify-content-component>
-<hr>
 <div *ngFor="let game of games">
     <app-content-card [item]="game"></app-content-card>
 </div>
-<app-create-content (newContentEvent)="addContentToList($event)"></app-create-content>
+<hr>
+<app-modify-content-component></app-modify-content-component>
+<br>
+<!-- <app-create-content (newContentEvent)="addContentToList($event)"></app-create-content> -->
 <div>
-    <input type="text" [value]="title | lowercase" [(ngModel)]="title">
-    <button (click)="searchTitle(title)">Search</button>
+    <mat-form-field>
+        <input matInput type="text" [value]="title | lowercase" [(ngModel)]="title">
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="searchTitle(title)">Search</button>
 </div>
 <br>
 <span id="results">
 
 </span>
+<hr>
 <br>
 <div appHoverAffect [effect] ="'background'" class="noTags" *ngFor="let game of games | contentFilter;">
     <app-content-card [item]="game"></app-content-card>
