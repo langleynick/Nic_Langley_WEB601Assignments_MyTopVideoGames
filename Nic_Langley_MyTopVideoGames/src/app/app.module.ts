@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -20,11 +20,13 @@ import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule} from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { GameServiceService } from './game-service.service';
 import { GameDialogComponent } from './game-dialog/game-dialog.component';
 import { GameViewComponent } from './game-view/game-view.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AppRoutingModule } from './app-routing.module';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [
@@ -48,6 +50,7 @@ import { AppRoutingModule } from './app-routing.module';
     MatCardModule,
     MatIconModule,
     MatDividerModule,
+    MatSnackBarModule,
     BrowserModule,
     FormsModule,
     HttpClientModule,
@@ -56,6 +59,12 @@ import { AppRoutingModule } from './app-routing.module';
       delay: 1000,
     }),
     BrowserAnimationsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    }),
   ],
   providers: [
     {
